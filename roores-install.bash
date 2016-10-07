@@ -1,8 +1,21 @@
 #!/usr/bin/env bash
 
+
+git clone git@github.com:ondrejbudai/roores.git roores-install-dir 2>/dev/null
+STATUS=$?
+
+if [ $STATUS -ne 0 ]; then
+    git clone https://github.com/ondrejbudai/roores.git roores-install-dir 2>/dev/null
+    STATUS=$?
+
+    if [ $STATUS -ne 0 ]; then
+        echo 'Git clone failed!' 2>/dev/null
+        exit 1
+    fi
+fi
+
 rm -rf WWW roores
 
-git clone git@github.com:ondrejbudai/roores.git roores-install-dir
 pushd roores-install-dir
 
 if [ $# -eq 1 ]; then
