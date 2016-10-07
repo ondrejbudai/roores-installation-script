@@ -24,6 +24,11 @@ fi
 
 popd
 
+
+php roores-install-dir/install/db_drop_tables.php
+php roores-install-dir/install/db_init_tables.php
+php roores-install-dir/install/db_init_values.php
+
 mv roores-install-dir/WWW .
 mv roores-install-dir/roores .
 
