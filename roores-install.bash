@@ -29,4 +29,5 @@ mv roores-install-dir/roores .
 
 rm -rf roores-install-dir
 
-chmod g=,o=rx WWW
+echo 'AddHandler application/x-httpd-php56 .php' >WWW/.htaccess
+chmod -R g=,o=rx WWW
