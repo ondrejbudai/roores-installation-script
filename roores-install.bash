@@ -14,7 +14,7 @@ if [ $STATUS -ne 0 ]; then
     fi
 fi
 
-rm -rf WWW roores
+rm -rf WWW roores notorm
 
 pushd roores-install-dir
 
@@ -31,6 +31,7 @@ php roores-install-dir/install/db_init_values.php
 
 mv roores-install-dir/WWW .
 mv roores-install-dir/roores .
+mv roores-install-dir/notorm .
 
 rm -rf roores-install-dir
 
