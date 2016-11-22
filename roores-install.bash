@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 
-git clone git@github.com:ondrejbudai/roores.git roores-install-dir 2>/dev/null
+git clone --recursive git@github.com:ondrejbudai/roores.git roores-install-dir 2>/dev/null
 STATUS=$?
 
 if [ $STATUS -ne 0 ]; then
-    git clone https://github.com/ondrejbudai/roores.git roores-install-dir 2>/dev/null
+    git clone --recursive https://github.com/ondrejbudai/roores.git roores-install-dir 2>/dev/null
     STATUS=$?
 
     if [ $STATUS -ne 0 ]; then
