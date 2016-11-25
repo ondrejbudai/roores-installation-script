@@ -35,5 +35,5 @@ mv roores-install-dir/notorm .
 
 rm -rf roores-install-dir
 
-echo 'AddHandler application/x-httpd-php56 .php' >WWW/.htaccess
+echo 'AddHandler application/x-httpd-php70 .php' >WWW/.htaccess
 chmod -R g=,o=rx WWW
