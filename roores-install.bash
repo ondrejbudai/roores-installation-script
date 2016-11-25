@@ -22,12 +22,11 @@ if [ $# -eq 1 ]; then
     git checkout $1
 fi
 
+pushd install
+./new_db.sh
 popd
 
-
-php roores-install-dir/install/db_drop_tables.php
-php roores-install-dir/install/db_init_tables.php
-php roores-install-dir/install/db_init_values.php
+popd
 
 mv roores-install-dir/WWW .
 mv roores-install-dir/roores .
