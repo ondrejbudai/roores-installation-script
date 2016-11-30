@@ -14,7 +14,7 @@ if [ $STATUS -ne 0 ]; then
     fi
 fi
 
-rm -rf WWW roores notorm
+rm -rf WWW/IIS roores notorm
 
 pushd roores-install-dir
 
@@ -28,11 +28,14 @@ popd
 
 popd
 
-mv roores-install-dir/WWW .
+mkdir -p WWW
+mv roores-install-dir/WWW WWW/IIS
 mv roores-install-dir/roores .
 mv roores-install-dir/notorm .
 
 rm -rf roores-install-dir
 
-echo 'AddHandler application/x-httpd-php70 .php' >WWW/.htaccess
+echo 'AddHandler application/x-httpd-php70 .php' >WWW/IIS/.htaccess
 chmod -R g=,o=rx WWW
+sed "s#define('PATH_TO_ROORES', '/../roores')#define('PATH_TO_ROORES', '/../../roores')#" WWW/IIS/index.php > WWW/IIS/index.php.new
+mv WWW/IIS/index.php.new WWW/IIS/index.php
